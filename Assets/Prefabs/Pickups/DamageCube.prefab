@@ -120,7 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977747a30983946459b6574fa84ff093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 100
+  _damageAmount: 33
+  _logEntry: "\u041F\u043E\u0434\u043E\u0431\u0440\u0430\u043D \u043A\u0443\u0431
+    \u0443\u0440\u043E\u043D\u0430"
 --- !u!95 &5754217143447780479
 Animator:
   serializedVersion: 5

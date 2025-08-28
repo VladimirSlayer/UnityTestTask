@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum UIState { Gameplay, Note, Log, GameOver }
 
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private GameObject _logPanel;
     [SerializeField] private GameObject _openLogButton;
+
+    private bool isRestarting = false;
 
     public static UIManager Instance { get; private set; }
 
@@ -24,6 +27,14 @@ public class UIManager : MonoBehaviour
         Instance = this;
 
         SetUIState(UIState.Gameplay);
+    }
+
+    public void RestartLevel()
+    {
+        if (isRestarting) return;
+        isRestarting = true;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public void SetUIState(UIState newState)
