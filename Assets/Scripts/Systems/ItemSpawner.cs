@@ -40,19 +40,21 @@ public class ItemSpawner : MonoBehaviour
     private Vector3 GetRandomPosition()
     {
         return new Vector3(
-            Random.Range(-spawnArea.x/2, spawnArea.x/2),
+            Random.Range(-spawnArea.x / 2, spawnArea.x / 2),
             0.5f,
-            Random.Range(-spawnArea.y/2, spawnArea.y/2)
+            Random.Range(-spawnArea.y / 2, spawnArea.y / 2)
         );
     }
 
-    public IEnumerator RespawnCoroutine(GameObject item, ObjectPool pool, float delay) {
+    public IEnumerator RespawnCoroutine(GameObject item, ObjectPool pool, float delay)
+    {
         pool.ReturnToPool(item);
         yield return new WaitForSeconds(delay);
         SpawnRandomItem();
     }
 
-    public void Respawn(GameObject item, ObjectPool pool, float delay = 3f) {
+    public void Respawn(GameObject item, ObjectPool pool, float delay = 3f)
+    {
         StartCoroutine(RespawnCoroutine(item, pool, delay));
     }
 }
