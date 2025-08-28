@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private GameObject _logPanel;
     [SerializeField] private GameObject _openLogButton;
+    [SerializeField] private TMP_Text _hpText;
 
     private bool isRestarting = false;
 
@@ -35,6 +36,11 @@ public class UIManager : MonoBehaviour
         isRestarting = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    public void RefreshHealth(float currentHP)
+    {
+        _hpText.text = $"HP: {currentHP}";
     }
 
     public void SetUIState(UIState newState)

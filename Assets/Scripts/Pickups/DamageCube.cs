@@ -17,8 +17,8 @@ public class DamageCube : MonoBehaviour
         if (health != null)
         {
             health.ApplyDamage(_damageAmount);
+            UIManager.Instance.RefreshHealth(health.Health);
             pooledItem.DeactivateAndRespawn();
-
             PickupLogManager.Instance.AddEntry(_logEntry);
         }
     }
